@@ -4,15 +4,15 @@ defmodule Chop do
     go_guess(actual, midway(range), range)
   end
 
-  def go_guess(actual, guess, _) when guess == actual do
+  defp go_guess(actual, guess, _) when guess == actual do
     IO.puts "THE ANSWER: #{actual}"
   end
 
-  def go_guess(actual, guess, _..upper) when guess < actual do
+  defp go_guess(actual, guess, _..upper) when guess < actual do
     guess(actual, (guess+1)..upper)
   end
 
-  def go_guess(actual, guess, lower.._) when guess > actual do
+  defp go_guess(actual, guess, lower.._) when guess > actual do
     guess(actual, lower..(guess-1))
   end
 
